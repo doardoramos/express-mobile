@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-geist-sans: "Geist", system-ui, sans-serif;
+    --font-geist-mono: "Geist Mono", monospace;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #f5f5fa;
+  }
+
+  /* Scrollbar discreta */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #2e2e38; border-radius: 99px; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply w-full flex items-center justify-center gap-2 py-4 px-5 rounded-2xl
+           bg-brand-500 hover:bg-brand-400 active:bg-brand-600
+           text-white font-semibold text-base
+           transition-all duration-150 ease-out
+           shadow-lg shadow-brand-900/30
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply w-full flex items-center justify-center gap-2 py-4 px-5 rounded-2xl
+           bg-surface-3 hover:bg-surface-4 active:bg-surface-2
+           text-white font-semibold text-base border border-surface-border
+           transition-all duration-150 ease-out
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply flex items-center justify-center gap-2 py-3 px-4 rounded-xl
+           hover:bg-surface-3 active:bg-surface-4
+           text-gray-400 hover:text-white font-medium text-sm
+           transition-all duration-150 ease-out;
+  }
+
+  .card {
+    @apply bg-surface-2 border border-surface-border rounded-2xl overflow-hidden;
+  }
+
+  .input {
+    @apply w-full bg-surface-3 border border-surface-border rounded-xl
+           px-4 py-3.5 text-white text-base
+           placeholder:text-gray-600
+           focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/30
+           transition-colors;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-400 mb-1.5;
+  }
+
+  .page-container {
+    @apply max-w-lg mx-auto px-4 pb-24;
+  }
+
+  .bottom-nav-safe {
+    @apply fixed bottom-0 left-0 right-0 z-50
+           bg-surface-1/95 backdrop-blur-md
+           border-t border-surface-border;
+  }
+}
